@@ -13,40 +13,24 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #f0f0f0;
-        }
-        
-        #bg-wrap {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-        
-        #bg {
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            width: calc(100% + 40px);
-            height: calc(100% + 40px);
+            background-image: url('images/main/back.jpg');
             background-size: cover;
-            filter: blur(20px);
+            background-position: center;
+            background-repeat: no-repeat;
+            backdrop-filter: blur(24px);
         }
-
         .container {
             position: relative;
             width: 1400px;
             height: 1000px;
-            background: rgba(255, 255, 255, 0.95);
+            background-color: rgba(255, 255, 255, 0.9);
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
             border-radius: 10px;
             overflow: hidden;
             margin: 0 auto;
             padding: 20px;
             box-sizing: border-box;
+            z-index: 1;
         }
         .image {
             position: absolute;
@@ -107,9 +91,6 @@
     </style>
 </head>
 <body>
-    <div id="bg-wrap">
-        <div id="bg"></div>
-    </div>
     <div class="container">
         <div id="startArea"></div>
         <img src="images/main/img0.jpeg" class="image active" id="img0">
@@ -332,28 +313,6 @@
         <img src="images/chapter7/7-8.png" class="image" id="chapter7_img8">
         <img src="images/chapter7/7-9.png" class="image" id="chapter7_img9">
     </div>
-    <script>
-        // Определяем, находимся ли мы на GitHub Pages
-        const isGitHubPages = window.location.hostname.includes('github.io');
-        // Получаем базовый путь
-        const basePath = isGitHubPages ? '/asyaucheba' : '';
-        
-        // Устанавливаем правильный путь для фонового изображения
-        document.addEventListener('DOMContentLoaded', function() {
-            const bg = document.getElementById('bg');
-            if (bg) {
-                bg.style.background = `url('${basePath}/images/main/img0.jpeg') center center`;
-                bg.style.backgroundSize = 'cover';
-            }
-            
-            // Обновляем пути для всех изображений
-            document.querySelectorAll('img').forEach(img => {
-                if (img.src.includes('images/')) {
-                    img.src = basePath + '/' + img.getAttribute('src');
-                }
-            });
-        });
-    </script>
     <script src="script.js"></script>
 </body>
 </html>
