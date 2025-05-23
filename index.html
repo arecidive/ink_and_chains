@@ -32,7 +32,6 @@
             left: -20px;
             width: calc(100% + 40px);
             height: calc(100% + 40px);
-            background: url('images/main/img0.jpeg') center center;
             background-size: cover;
             filter: blur(20px);
         }
@@ -333,6 +332,28 @@
         <img src="images/chapter7/7-8.png" class="image" id="chapter7_img8">
         <img src="images/chapter7/7-9.png" class="image" id="chapter7_img9">
     </div>
+    <script>
+        // Определяем, находимся ли мы на GitHub Pages
+        const isGitHubPages = window.location.hostname.includes('github.io');
+        // Получаем базовый путь
+        const basePath = isGitHubPages ? '/asyaucheba' : '';
+        
+        // Устанавливаем правильный путь для фонового изображения
+        document.addEventListener('DOMContentLoaded', function() {
+            const bg = document.getElementById('bg');
+            if (bg) {
+                bg.style.background = `url('${basePath}/images/main/img0.jpeg') center center`;
+                bg.style.backgroundSize = 'cover';
+            }
+            
+            // Обновляем пути для всех изображений
+            document.querySelectorAll('img').forEach(img => {
+                if (img.src.includes('images/')) {
+                    img.src = basePath + '/' + img.getAttribute('src');
+                }
+            });
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
