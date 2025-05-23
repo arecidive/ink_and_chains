@@ -1,0 +1,65 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.container {
+    position: relative;
+    width: 1200px;
+    height: 800px;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    display: none;
+}
+
+.image.active {
+    opacity: 1;
+    display: block;
+}
+
+#startArea {
+    position: absolute;
+    width: 435px;
+    height: 225px;
+    left: 377.5px;  /* Сместили ещё правее */
+    top: 285.5px;   /* 398 - (225/2) */
+    cursor: pointer;
+    z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95vw;
+        height: 70vh;
+    }
+    #startArea {
+        display: none;
+    }
+}
+
+@media (orientation: portrait) {
+    .container {
+        height: 60vh;
+    }
+    #startArea {
+        display: none;
+    }
+}

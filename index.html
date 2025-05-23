@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чернила и цепи</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('images/main/img0.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            backdrop-filter: blur(24px);
+        }
+        .container {
+            position: relative;
+            width: 1400px;
+            height: 1000px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+            z-index: 1;
+        }
+        .image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            object-fit: contain;
+            padding: 30px;
+            box-sizing: border-box;
+            border: 20px solid white;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+        }
+        .image.active {
+            display: block;
+        }
+        .choice-button {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 60px;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            z-index: 1000;
+            pointer-events: auto;
+        }
+        .choice-buttons {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .choice-buttons.active {
+            display: block;
+            pointer-events: auto;
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 95vw;
+                height: 80vh;
+            }
+            .image {
+                padding: 15px;
+                border-width: 10px;
+            }
+        }
+        @media (orientation: portrait) {
+            .container {
+                height: 60vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="startArea"></div>
+        <img src="images/main/img0.jpeg" class="image active" id="img0">
+        <img src="images/main/img1.jpeg" class="image" id="img1">
+        <img src="images/main/img2.jpeg" class="image" id="img2">
+        <img src="images/main/img3.jpeg" class="image" id="img3">
+        <img src="images/main/img4.jpeg" class="image" id="img4">
+        <img src="images/main/img5.jpeg" class="image" id="img5">
+        <img src="images/main/img6.jpeg" class="image" id="img6">
+        <img src="images/main/img7.jpeg" class="image" id="img7">
+        <img src="images/main/img8.jpeg" class="image" id="img8">
+        <img src="images/main/img9.jpeg" class="image" id="img9">
+        <img src="images/main/img10.jpeg" class="image" id="img10">
+        <img src="images/main/img11.jpeg" class="image" id="img11">
+        <img src="images/main/img12.jpeg" class="image" id="img12">
+        <img src="images/main/img13.jpeg" class="image" id="img13">
+        <img src="images/main/img14.jpeg" class="image" id="img14">
+        <img src="images/main/img15.jpeg" class="image" id="img15">
+        <img src="images/main/img16.jpeg" class="image" id="img16">
+        <img src="images/main/img17.jpeg" class="image" id="img17">
+        <img src="images/main/img18.jpeg" class="image" id="img18">
+        <img src="images/main/img19.jpeg" class="image" id="img19">
+        <img src="images/main/img20.jpeg" class="image" id="img20">
+        <img src="images/main/img21.jpeg" class="image" id="img21">
+        <img src="images/main/img22.jpeg" class="image" id="img22">
+        <img src="images/main/img23.jpeg" class="image" id="img23">
+        <img src="images/main/img24.jpeg" class="image" id="img24">
+        <img src="images/main/img25.jpeg" class="image" id="img25">
+        <!-- Изображения для первой главы, путь 1 -->
+        <img src="images/chapter1_1/img1-1-1.jpg" class="image" id="chapter1_1_img1">
+        <img src="images/chapter1_1/img1-1-2.jpg" class="image" id="chapter1_1_img2">
+        <img src="images/chapter1_1/img1-1-3.jpg" class="image" id="chapter1_1_img3">
+        <img src="images/chapter1_1/img1-1-4.jpg" class="image" id="chapter1_1_img4">
+        <img src="images/chapter1_1/img1-1-5.jpg" class="image" id="chapter1_1_img5">
+        <img src="images/chapter1_1/img1-1-6.jpg" class="image" id="chapter1_1_img6">
+        <img src="images/chapter1_1/img1-1-7.jpg" class="image" id="chapter1_1_img7">
+        <!-- Изображения для первой главы, путь 2 -->
+        <img src="images/chapter1_2/img1-2-1.jpg" class="image" id="chapter1_2_img1">
+        <img src="images/chapter1_2/img1-2-2.jpg" class="image" id="chapter1_2_img2">
+        <img src="images/chapter1_2/img1-2-3.jpg" class="image" id="chapter1_2_img3">
+        <img src="images/chapter1_2/img1-2-4.jpg" class="image" id="chapter1_2_img4">
+        <img src="images/chapter1_2/img1-2-5.jpg" class="image" id="chapter1_2_img5">
+        <img src="images/chapter1_2/img1-2-6.jpg" class="image" id="chapter1_2_img6">
+        <img src="images/chapter1_2/img1-2-7.jpg" class="image" id="chapter1_2_img7">
+        <img src="images/chapter1_2/img1-2-8.jpg" class="image" id="chapter1_2_img8">
+        <img src="images/chapter1_2/img1-2-9.jpg" class="image" id="chapter1_2_img9">
+        <img src="images/chapter1_2/img1-2-10.jpg" class="image" id="chapter1_2_img10">
+        <img src="images/chapter1_2/img1-2-11.jpg" class="image" id="chapter1_2_img11">
+        <img src="images/chapter1_2/img1-2-12.jpg" class="image" id="chapter1_2_img12">
+        <img src="images/chapter1_2/img1-2-13.jpg" class="image" id="chapter1_2_img13">
+        <img src="images/chapter1_2/img1-2-14.jpg" class="image" id="chapter1_2_img14">
+        <img src="images/chapter1_2/img1-2-15.jpg" class="image" id="chapter1_2_img15">
+        <div id="choiceButtons13" class="choice-buttons">
+            <button class="choice-button" style="top: 40%;"></button>
+            <button class="choice-button" style="top: 60%;"></button>
+            <button class="choice-button" style="top: 80%;"></button>
+        </div>
+        <div id="choiceButtons25" class="choice-buttons">
+            <button class="choice-button" style="top: 50%;" id="chapter1_1_button"></button>
+            <button class="choice-button" style="top: 70%;" id="chapter1_2_button"></button>
+        </div>
+        <div id="returnButton" class="choice-buttons">
+            <button class="choice-button" style="top: 70%;" id="return_to_start_button"></button>
+        </div>
+        <!-- Изображения для второй главы -->
+        <img src="images/chapter2/2-1.png" class="image" id="chapter2_img1">
+        <img src="images/chapter2/2-2.png" class="image" id="chapter2_img2">
+        <img src="images/chapter2/2-3.png" class="image" id="chapter2_img3">
+        <img src="images/chapter2/2-4.png" class="image" id="chapter2_img4">
+        <img src="images/chapter2/2-5.png" class="image" id="chapter2_img5">
+        <img src="images/chapter2/2-6.png" class="image" id="chapter2_img6">
+        <img src="images/chapter2/2-7.png" class="image" id="chapter2_img7">
+        <img src="images/chapter2/2-8.png" class="image" id="chapter2_img8">
+        <img src="images/chapter2/2-9.png" class="image" id="chapter2_img9">
+        <!-- Изображения для третьей главы -->
+        <img src="images/chapter3/3-1.png" class="image" id="chapter3_img1">
+        <img src="images/chapter3/3-2.png" class="image" id="chapter3_img2">
+        <img src="images/chapter3/3-3.png" class="image" id="chapter3_img3">
+        <img src="images/chapter3/3-4.png" class="image" id="chapter3_img4">
+        <img src="images/chapter3/3-5.png" class="image" id="chapter3_img5">
+        <img src="images/chapter3/3-6.png" class="image" id="chapter3_img6">
+        <img src="images/chapter3/3-7.png" class="image" id="chapter3_img7">
+        <img src="images/chapter3/3-8.png" class="image" id="chapter3_img8">
+        <img src="images/chapter3/3-9.png" class="image" id="chapter3_img9">
+        <img src="images/chapter3/3-10.png" class="image" id="chapter3_img10">
+        <img src="images/chapter3/3-11.png" class="image" id="chapter3_img11">
+        <img src="images/chapter3/3-12.png" class="image" id="chapter3_img12">
+        <img src="images/chapter3/3-13.png" class="image" id="chapter3_img13">
+        <img src="images/chapter3/3-14.png" class="image" id="chapter3_img14">
+        <img src="images/chapter3/3-15.png" class="image" id="chapter3_img15">
+        <img src="images/chapter3/3-16.png" class="image" id="chapter3_img16">
+        <img src="images/chapter3/3-17.png" class="image" id="chapter3_img17">
+        <img src="images/chapter3/3-18.png" class="image" id="chapter3_img18">
+        <img src="images/chapter3/3-19.png" class="image" id="chapter3_img19">
+        <img src="images/chapter3/3-20.png" class="image" id="chapter3_img20">
+        <img src="images/chapter3/3-21.png" class="image" id="chapter3_img21">
+        <img src="images/chapter3/3-22.png" class="image" id="chapter3_img22">
+        <img src="images/chapter3/3-23.png" class="image" id="chapter3_img23">
+        <img src="images/chapter3/3-24.png" class="image" id="chapter3_img24">
+        <img src="images/chapter3/3-25.png" class="image" id="chapter3_img25">
+        <img src="images/chapter3/3-26.png" class="image" id="chapter3_img26">
+        <img src="images/chapter3/3-27.png" class="image" id="chapter3_img27">
+        <!-- Изображения для четвертой главы -->
+        <img src="images/chapter4/4-1.png" class="image" id="chapter4_img1">
+        <img src="images/chapter4/4-2.png" class="image" id="chapter4_img2">
+        <img src="images/chapter4/4-3.png" class="image" id="chapter4_img3">
+        <img src="images/chapter4/4-4.png" class="image" id="chapter4_img4">
+        <img src="images/chapter4/4-5.png" class="image" id="chapter4_img5">
+        <img src="images/chapter4/4-6.png" class="image" id="chapter4_img6">
+        <img src="images/chapter4/4-7.png" class="image" id="chapter4_img7">
+        <img src="images/chapter4/4-8.png" class="image" id="chapter4_img8">
+        <img src="images/chapter4/4-9.png" class="image" id="chapter4_img9">
+        <img src="images/chapter4/4-10.png" class="image" id="chapter4_img10">
+        <img src="images/chapter4/4-11.png" class="image" id="chapter4_img11">
+        <img src="images/chapter4/4-12.png" class="image" id="chapter4_img12">
+        <img src="images/chapter4/4-13.png" class="image" id="chapter4_img13">
+        <img src="images/chapter4/4-14.png" class="image" id="chapter4_img14">
+        <img src="images/chapter4/4-15.png" class="image" id="chapter4_img15">
+        <img src="images/chapter4/4-16.png" class="image" id="chapter4_img16">
+        <img src="images/chapter4/4-17.png" class="image" id="chapter4_img17">
+        <img src="images/chapter4/4-18.png" class="image" id="chapter4_img18">
+        <img src="images/chapter4/4-19.png" class="image" id="chapter4_img19">
+        <img src="images/chapter4/4-20.png" class="image" id="chapter4_img20">
+        <img src="images/chapter4/4-21.png" class="image" id="chapter4_img21">
+        <img src="images/chapter4/4-22.png" class="image" id="chapter4_img22">
+        <img src="images/chapter4/4-23.png" class="image" id="chapter4_img23">
+        <img src="images/chapter4/4-24.png" class="image" id="chapter4_img24">
+        <img src="images/chapter4/4-25.png" class="image" id="chapter4_img25">
+        <img src="images/chapter4/4-26.png" class="image" id="chapter4_img26">
+        <img src="images/chapter4/4-27.png" class="image" id="chapter4_img27">
+        <img src="images/chapter4/4-28.png" class="image" id="chapter4_img28">
+        <img src="images/chapter4/4-29.png" class="image" id="chapter4_img29">
+        <img src="images/chapter4/4-30.png" class="image" id="chapter4_img30">
+        <img src="images/chapter4/4-31.png" class="image" id="chapter4_img31">
+        <!-- Изображения для пятой главы -->
+        <img src="images/chapter5/5-1.png" class="image" id="chapter5_img1">
+        <img src="images/chapter5/5-2.png" class="image" id="chapter5_img2">
+        <img src="images/chapter5/5-3.png" class="image" id="chapter5_img3">
+        <img src="images/chapter5/5-4.png" class="image" id="chapter5_img4">
+        <img src="images/chapter5/5-5.png" class="image" id="chapter5_img5">
+        <img src="images/chapter5/5-6.png" class="image" id="chapter5_img6">
+        <img src="images/chapter5/5-7.png" class="image" id="chapter5_img7">
+        <img src="images/chapter5/5-8.png" class="image" id="chapter5_img8">
+        <img src="images/chapter5/5-9.png" class="image" id="chapter5_img9">
+        <img src="images/chapter5/5-10.png" class="image" id="chapter5_img10">
+        <!-- Кнопки выбора для 5-10.png -->
+        <div id="choiceButtons510" class="choice-buttons">
+            <button class="choice-button" style="top: 50%;" id="chapter5_1_button"></button>
+            <button class="choice-button" style="top: 70%;" id="chapter5_2_button"></button>
+        </div>
+        <!-- Изображения для главы 5_1 -->
+        <img src="images/chapter5_1/5-1-1.png" class="image" id="chapter5_1_img1">
+        <img src="images/chapter5_1/5-1-2.png" class="image" id="chapter5_1_img2">
+        <img src="images/chapter5_1/5-1-3.png" class="image" id="chapter5_1_img3">
+        <img src="images/chapter5_1/5-1-4.png" class="image" id="chapter5_1_img4">
+        <img src="images/chapter5_1/5-1-5.png" class="image" id="chapter5_1_img5">
+        <img src="images/chapter5_1/5-1-6.png" class="image" id="chapter5_1_img6">
+        <img src="images/chapter5_1/5-1-7.png" class="image" id="chapter5_1_img7">
+        <!-- Изображения для главы 5_2 -->
+        <img src="images/chapter5_2/5-2-1.png" class="image" id="chapter5_2_img1">
+        <img src="images/chapter5_2/5-2-2.png" class="image" id="chapter5_2_img2">
+        <img src="images/chapter5_2/5-2-3.png" class="image" id="chapter5_2_img3">
+        <img src="images/chapter5_2/5-2-4.png" class="image" id="chapter5_2_img4">
+        <img src="images/chapter5_2/5-2-5.png" class="image" id="chapter5_2_img5">
+        <!-- Изображения для шестой главы -->
+        <img src="images/chapter6/6-1.png" class="image" id="chapter6_img1">
+        <img src="images/chapter6/6-2.png" class="image" id="chapter6_img2">
+        <img src="images/chapter6/6-3.png" class="image" id="chapter6_img3">
+        <img src="images/chapter6/6-4.png" class="image" id="chapter6_img4">
+        <img src="images/chapter6/6-5.png" class="image" id="chapter6_img5">
+        <img src="images/chapter6/6-6.png" class="image" id="chapter6_img6">
+        <img src="images/chapter6/6-7.png" class="image" id="chapter6_img7">
+        <img src="images/chapter6/6-8.png" class="image" id="chapter6_img8">
+        <img src="images/chapter6/6-9.png" class="image" id="chapter6_img9">
+        <img src="images/chapter6/6-10.png" class="image" id="chapter6_img10">
+        <img src="images/chapter6/6-11.png" class="image" id="chapter6_img11">
+        <img src="images/chapter6/6-12.png" class="image" id="chapter6_img12">
+        <!-- Кнопки выбора для 6-12.png -->
+        <div id="choiceButtons610" class="choice-buttons">
+            <button class="choice-button" style="top: 50%;" id="chapter6_1_button"></button>
+            <button class="choice-button" style="top: 73%;" id="chapter6_2_button"></button>
+        </div>
+        <!-- Изображения для главы 6_1 -->
+        <img src="images/chapter6_1/6-1-1.png" class="image" id="chapter6_1_img1">
+        <img src="images/chapter6_1/6-1-2.png" class="image" id="chapter6_1_img2">
+        <img src="images/chapter6_1/6-1-3.png" class="image" id="chapter6_1_img3">
+        <img src="images/chapter6_1/6-1-4.png" class="image" id="chapter6_1_img4">
+        <img src="images/chapter6_1/6-1-5.png" class="image" id="chapter6_1_img5">
+        <img src="images/chapter6_1/6-1-6.png" class="image" id="chapter6_1_img6">
+        <img src="images/chapter6_1/6-1-7.png" class="image" id="chapter6_1_img7">
+        <img src="images/chapter6_1/6-1-8.png" class="image" id="chapter6_1_img8">
+        <img src="images/chapter6_1/6-1-9.png" class="image" id="chapter6_1_img9">
+        <img src="images/chapter6_1/6-1-10.png" class="image" id="chapter6_1_img10">
+        <img src="images/chapter6_1/6-1-11.png" class="image" id="chapter6_1_img11">
+        <img src="images/chapter6_1/6-1-12.png" class="image" id="chapter6_1_img12">
+        <img src="images/chapter6_1/6-1-13.png" class="image" id="chapter6_1_img13">
+        <img src="images/chapter6_1/6-1-14.png" class="image" id="chapter6_1_img14">
+        <img src="images/chapter6_1/6-1-15.png" class="image" id="chapter6_1_img15">
+        <!-- Изображения для главы 6_2 -->
+        <img src="images/chapter6_2/6-2-1.png" class="image" id="chapter6_2_img1">
+        <img src="images/chapter6_2/6-2-2.png" class="image" id="chapter6_2_img2">
+        <img src="images/chapter6_2/6-2-3.png" class="image" id="chapter6_2_img3">
+        <img src="images/chapter6_2/6-2-4.png" class="image" id="chapter6_2_img4">
+        <img src="images/chapter6_2/6-2-5.png" class="image" id="chapter6_2_img5">
+        <img src="images/chapter6_2/6-2-6.png" class="image" id="chapter6_2_img6">
+        <img src="images/chapter6_2/6-2-7.png" class="image" id="chapter6_2_img7">
+        <img src="images/chapter6_2/6-2-8.png" class="image" id="chapter6_2_img8">
+        <img src="images/chapter6_2/6-2-9.png" class="image" id="chapter6_2_img9">
+        <img src="images/chapter6_2/6-2-10.png" class="image" id="chapter6_2_img10">
+        <img src="images/chapter6_2/6-2-11.png" class="image" id="chapter6_2_img11">
+        <img src="images/chapter6_2/6-2-12.png" class="image" id="chapter6_2_img12">
+        <!-- Изображения для седьмой главы -->
+        <img src="images/chapter7/7-1.png" class="image" id="chapter7_img1">
+        <img src="images/chapter7/7-2.png" class="image" id="chapter7_img2">
+        <img src="images/chapter7/7-3.png" class="image" id="chapter7_img3">
+        <img src="images/chapter7/7-4.png" class="image" id="chapter7_img4">
+        <img src="images/chapter7/7-5.png" class="image" id="chapter7_img5">
+        <img src="images/chapter7/7-6.png" class="image" id="chapter7_img6">
+        <img src="images/chapter7/7-7.png" class="image" id="chapter7_img7">
+        <img src="images/chapter7/7-8.png" class="image" id="chapter7_img8">
+        <img src="images/chapter7/7-9.png" class="image" id="chapter7_img9">
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
