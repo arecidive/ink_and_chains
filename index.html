@@ -13,33 +13,41 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
+            background: #f0f0f0;
+        }
+        
+        #bg-wrap {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
             overflow: hidden;
         }
-        .background {
-            position: fixed;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background-image: url('images/main/img0.jpeg');
+        
+        #bg {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: calc(100% + 40px);
+            height: calc(100% + 40px);
+            background: url('images/main/img0.jpeg') center center;
             background-size: cover;
-            background-position: center;
-            filter: blur(24px);
-            z-index: -1;
+            filter: blur(20px);
         }
+
         .container {
             position: relative;
             width: 1400px;
             height: 1000px;
-            background-color: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.95);
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
             border-radius: 10px;
             overflow: hidden;
             margin: 0 auto;
             padding: 20px;
             box-sizing: border-box;
-            z-index: 1;
         }
         .image {
             position: absolute;
@@ -100,7 +108,9 @@
     </style>
 </head>
 <body>
-    <div class="background"></div>
+    <div id="bg-wrap">
+        <div id="bg"></div>
+    </div>
     <div class="container">
         <div id="startArea"></div>
         <img src="images/main/img0.jpeg" class="image active" id="img0">
