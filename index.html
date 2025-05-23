@@ -13,17 +13,26 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .background {
+            position: fixed;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
             background-image: url('images/main/img0.jpeg');
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
-            backdrop-filter: blur(24px);
+            filter: blur(24px);
+            z-index: -1;
         }
         .container {
             position: relative;
             width: 1400px;
             height: 1000px;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.95);
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
             border-radius: 10px;
             overflow: hidden;
@@ -91,6 +100,7 @@
     </style>
 </head>
 <body>
+    <div class="background"></div>
     <div class="container">
         <div id="startArea"></div>
         <img src="images/main/img0.jpeg" class="image active" id="img0">
